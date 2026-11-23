@@ -6,7 +6,7 @@
 /*   By: ajohari <ajohari@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/21 17:06:58 by ajohari           #+#    #+#             */
-/*   Updated: 2026/11/22 23:43:24 by ajohari          ###   ########.fr       */
+/*   Updated: 2026/11/23 14:32:25 by ajohari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,11 @@ int	main(int argc, char **argv)
 	data = new_data(argv[1]);
 	if (!data)
 		return (1);
-	prefill(data);
-	print_board(data->board, data->size);
-	write(1, "\n", 1);
 	recursive_solve(data, 0, data->size);
 	if (data->board[data->size * data->size] != 0)
 		print_board(data->board, data->size);
 	else
 		write(1, "Error\n", 6);
+	print_board(data->board, data->size);
 	free_data(data);
 }
